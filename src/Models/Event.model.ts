@@ -2,7 +2,7 @@ import { Competitor } from "./Competitor.model";
 
 export interface Event {
   competitors: Competitor[];
-  day: string;
+  day: string ;
   detailed_event_name: string;
   discipline_name: string;
   discipline_pictogram: string;
