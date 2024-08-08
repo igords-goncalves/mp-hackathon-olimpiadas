@@ -158,7 +158,7 @@ const ScheduleView = ({}: ScheduleViewProps) => {
   };
 
   return (
-    <Suspense>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="flex flex-col gap-6 mt-10">
         {isPending ? (
           <SkeletonCard />
