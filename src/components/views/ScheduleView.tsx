@@ -16,7 +16,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import React from "react";
+import React, { Suspense } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -158,15 +158,17 @@ const ScheduleView = ({}: ScheduleViewProps) => {
   };
 
   return (
-    <div className="flex flex-col gap-6 mt-10">
-      {isPending ? (
-        <SkeletonCard />
-      ) : isError ? (
-        <IsError errorMessage="Nenhum evento encontrado..." />
-      ) : (
-        <GrouppedEvents />
-      )}
-    </div>
+    <Suspense>
+      <div className="flex flex-col gap-6 mt-10">
+        {isPending ? (
+          <SkeletonCard />
+        ) : isError ? (
+          <IsError errorMessage="Nenhum evento encontrado..." />
+        ) : (
+          <GrouppedEvents />
+        )}
+      </div>
+    </Suspense>
   );
 };
 
